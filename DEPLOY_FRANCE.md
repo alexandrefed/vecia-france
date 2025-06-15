@@ -1,33 +1,37 @@
-# 🇫🇷 Deploy Vecia France
+# 🇫🇷 Vecia France - Deployment Fixed!
 
-## Quick Deploy Steps
+## ✅ Issues Fixed
 
-### 1. Create GitHub Repository
-1. Go to: https://github.com/new
-2. Name: `vecia-france`
-3. Create repository (keep empty)
+1. **NPM Deprecation Warnings** - All resolved by updating packages:
+   - ESLint updated to v9.17.0 (latest)
+   - Rimraf updated to v6.0.1 
+   - Migrated to ESLint flat config format
 
-### 2. Push to GitHub
+2. **Vercel Runtime Error** - Fixed by:
+   - Updated @astrojs/vercel to v8.1.5
+   - Added `runtime: 'nodejs20.x'` in astro.config.mjs
+   - Configured functions runtime in vercel.json
+
+## 🚀 Next Steps
+
+### Redeploy on Vercel
+1. Go to your Vercel dashboard
+2. Find the `vecia-france` project
+3. Click "Redeploy" or wait for automatic deployment
+4. The build should now succeed!
+
+### If You Need to Update Dependencies Locally
 ```bash
-git remote add origin https://github.com/alexandrefed/vecia-france.git
-git branch -M main
-git push -u origin main
+cd /Users/alex/Desktop/ClaudeMCP/Vecia/Website/vecia-france
+npm install
+npm run build  # Test locally
 ```
 
-### 3. Deploy on Vercel
-1. Go to: https://vercel.com/new
-2. Import `vecia-france` repository
-3. Deploy settings are auto-detected
-4. Click Deploy!
+## 📋 What Changed
 
-### 4. Your Site
-- Live at: `vecia-france.vercel.app`
-- Or custom domain: `vecia.fr`
+- **package.json**: Updated dependencies and dev dependencies
+- **astro.config.mjs**: Added Node.js 20.x runtime
+- **vercel.json**: Added functions runtime configuration
+- **eslint.config.js**: New ESLint v9 flat config (replaced .eslintrc.json)
 
-## Environment Variables (Optional)
-```
-PUBLIC_SITE_URL=https://vecia-france.vercel.app
-PUBLIC_GA_ID=G-FRANCE123
-```
-
-✅ That's it! Your French site is live.
+Your site should now deploy successfully on Vercel! 🎉

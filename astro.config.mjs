@@ -8,7 +8,6 @@ export default defineConfig({
   output: 'hybrid',
   adapter: vercel({
     edgeMiddleware: true,
-    runtime: 'nodejs20.x',
   }),
   integrations: [
     tailwind(),
