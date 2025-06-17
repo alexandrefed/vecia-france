@@ -30,21 +30,14 @@ const t = getLocaleData(locale);
         {t.hero.subheading}
       </p>
       
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style="animation-delay: 0.2s">
+      <!-- CTA -->
+      <div class="flex justify-center animate-fade-up" style="animation-delay: 0.2s">
         <Button 
           href={t.hero.cta_link || '#contact'}
           size="lg"
           external={t.hero.cta_link?.startsWith('http')}
         >
           {t.hero.cta_primary}
-        </Button>
-        <Button 
-          href="#download"
-          variant="secondary"
-          size="lg"
-        >
-          {t.hero.cta_secondary}
         </Button>
       </div>
     </div>
