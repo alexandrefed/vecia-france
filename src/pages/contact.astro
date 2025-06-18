@@ -5,35 +5,6 @@ import Button from '@components/common/Button.astro';
 
 const title = 'Contact - Vecia';
 const description = 'Contactez Vecia pour discuter de vos besoins en automatisation IA';
-
-const contactInfo = [
-  {
-    title: 'Adresse',
-    content: ['[Votre adresse]', 'Paris, France'],
-    iconPath: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z',
-    color: 'primary',
-  },
-  {
-    title: 'Email',
-    content: ['contact@vecia.ai'],
-    link: 'mailto:contact@vecia.ai',
-    iconPath: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
-    color: 'secondary',
-  },
-  {
-    title: 'Réserver un appel',
-    content: ['Planifiez un appel découverte de 30 minutes pour discuter de vos besoins'],
-    iconPath: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
-    color: 'accent',
-    hasButton: true,
-  },
-  {
-    title: 'Horaires',
-    content: ['Lundi - Vendredi : 9h00 - 18h00', 'Samedi - Dimanche : Fermé'],
-    iconPath: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
-    color: 'accent-purple',
-  },
-];
 ---
 
 <BaseLayout title={title} description={description}>
@@ -47,69 +18,6 @@ const contactInfo = [
         <p class="text-xl text-gray-700 max-w-3xl mx-auto">
           Découvrez comment Vecia peut transformer vos opérations avec l'IA
         </p>
-      </div>
-      
-      <!-- Contact Cards -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-        {contactInfo.map((info, index) => (
-          <div class="scroll-fade" style={`animation-delay: ${index * 100}ms`}>
-            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
-              <!-- Icon -->
-              <div class="mb-6">
-                <div class={`
-                  w-14 h-14 rounded-2xl flex items-center justify-center
-                  ${info.color === 'primary' ? 'bg-primary/10' : 
-                    info.color === 'secondary' ? 'bg-secondary/10' : 
-                    info.color === 'accent' ? 'bg-accent/10' :
-                    'bg-accent-purple/10'}
-                `}>
-                  <svg 
-                    class={`w-7 h-7 ${
-                      info.color === 'primary' ? 'text-primary' : 
-                      info.color === 'secondary' ? 'text-secondary' : 
-                      info.color === 'accent' ? 'text-accent' :
-                      'text-accent-purple'
-                    }`} 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                  >
-                    <path stroke-linecap="round" stroke-linejoin="round" d={info.iconPath} />
-                  </svg>
-                </div>
-              </div>
-              
-              <!-- Content -->
-              <h3 class="text-xl font-display font-semibold text-dark mb-3">
-                {info.title}
-              </h3>
-              <div class="text-gray-600">
-                {info.content.map(line => (
-                  info.link ? (
-                    <a href={info.link} class="text-primary hover:underline block">
-                      {line}
-                    </a>
-                  ) : (
-                    <p>{line}</p>
-                  )
-                ))}
-              </div>
-              
-              {info.hasButton && (
-                <Button 
-                  href="https://calendly.com/vecia/decouverte"
-                  external={true}
-                  variant="primary"
-                  size="sm"
-                  class="mt-4"
-                >
-                  Réserver un créneau
-                </Button>
-              )}
-            </div>
-          </div>
-        ))}
       </div>
     </Container>
   </section>

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import AnimatedHero from '@components/sections/AnimatedHero.astro';
+import ProcessFlow from '@components/sections/ProcessFlow.astro';
 import Projects from '@components/sections/Projects.astro';
 import Features from '@components/sections/Features.astro';
 import BlogPreview from '@components/sections/BlogPreview.astro';
@@ -16,7 +16,7 @@ const seo = {
 ---
 
 <BaseLayout {...seo}>
-  <AnimatedHero />
+  <ProcessFlow />
   <Projects />
   <Features locale={locale} />
   <CTA locale={locale} />
