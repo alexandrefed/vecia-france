@@ -9,66 +9,95 @@ export interface Props {
 
 const { locale } = Astro.props;
 
-const features = [
+const processSteps = [
   {
-    today: locale === 'fr-fr' ? 'Copier-coller manuel entre apps' : locale === 'fr-ch' ? 'Copier-coller manuel entre applications' : 'Manual copy-paste across apps',
-    withVecia: locale === 'fr-fr' ? 'Tableaux de bord auto-actualisés' : locale === 'fr-ch' ? 'Tableaux de bord auto-actualisés' : 'Self-updating dashboards',
-    icon: '📋',
+    number: '01',
+    title: 'Diagnostic gratuit',
+    description: 'Analyse approfondie de vos processus pour identifier les opportunités d\'automatisation immédiates',
+    iconPath: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4',
+    color: 'primary',
   },
   {
-    today: locale === 'fr-fr' ? 'Chatbots génériques qui hallucinent' : locale === 'fr-ch' ? 'Chatbots génériques peu fiables' : 'Generic chatbots that hallucinate',
-    withVecia: locale === 'fr-fr' ? 'Agents formés sur votre domaine avec validation humaine' : locale === 'fr-ch' ? 'Agents spécialisés avec contrôle humain' : 'Domain-trained agents with human-in-loop review',
-    icon: '🤖',
+    number: '02',
+    title: 'Sprint de 2 semaines',
+    description: 'Développement et déploiement rapide de vos premiers agents IA opérationnels',
+    iconPath: 'M13 10V3L4 14h7v7l9-11h-7z',
+    color: 'secondary',
   },
   {
-    today: locale === 'fr-fr' ? 'Licences entreprise coûteuses' : locale === 'fr-ch' ? 'Licences entreprise onéreuses' : 'Expensive enterprise licenses',
-    withVecia: locale === 'fr-fr' ? 'Forfaits modulaires évolutifs' : locale === 'fr-ch' ? 'Solutions modulaires flexibles' : 'Modular pay-as-you-grow packages',
-    icon: '💰',
+    number: '03',
+    title: 'Mesure ROI',
+    description: 'Tableau de bord en temps réel et optimisation continue de vos agents',
+    iconPath: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+    color: 'accent',
+  },
+  {
+    number: '04',
+    title: 'Support mensuel',
+    description: 'Accompagnement continu et évolution de vos automatisations',
+    iconPath: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    color: 'accent-purple',
   },
 ];
 ---
 
-<section class="section bg-gray-50">
+<section class="section bg-gradient-to-b from-gray-50 via-white to-primary/5">
   <Container>
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">
-        {locale === 'fr-fr' ? 'Problème → Promesse' : locale === 'fr-ch' ? 'Défi → Solution' : 'Problem → Promise'}
+    <div class="text-center mb-16 scroll-fade visible">
+      <h2 class="font-display font-bold text-dark mb-4">
+        <span class="text-4xl text-primary">■</span> Processus simplifié
       </h2>
-      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-        {locale === 'fr-fr' 
-          ? "L'adoption de l'IA est freinée par les difficultés d'intégration—Vecia résout d'abord l'intégration."
-          : locale === 'fr-ch'
-          ? "L'adoption de l'IA est ralentie par les défis d'intégration—Vecia offre une solution complète."
-          : "AI adoption is stalled by integration pain—Vecia solves integration first."}
-      </p>
     </div>
     
-    <div class="grid md:grid-cols-3 gap-8">
-      {features.map((feature) => (
-        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-200">
-          <div class="text-4xl mb-6">{feature.icon}</div>
-          
-          <div class="space-y-4">
-            <div>
-              <h3 class="font-display font-semibold text-red-600 mb-2">
-                {locale === 'fr-fr' ? 'Aujourd\'hui' : locale === 'fr-ch' ? 'Actuellement' : 'Today'}
-              </h3>
-              <p class="text-gray-600">{feature.today}</p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {processSteps.map((step, index) => (
+        <div class="scroll-fade" style={`animation-delay: ${index * 100}ms`}>
+          <div class="relative h-full bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <!-- Number badge -->
+            <div class={`
+              absolute -top-4 -left-4 w-14 h-14 rounded-2xl flex items-center justify-center font-display font-bold text-xl text-white
+              ${step.color === 'primary' ? 'bg-primary' : 
+                step.color === 'secondary' ? 'bg-secondary' : 
+                step.color === 'accent' ? 'bg-accent' :
+                'bg-accent-purple'}
+            `}>
+              {step.number}
             </div>
             
-            <div class="relative">
-              <div class="absolute left-0 top-1/2 w-full h-px bg-gray-300"></div>
-              <div class="relative bg-white inline-block px-3">
-                <span class="text-2xl">→</span>
+            <!-- Icon -->
+            <div class="mb-6 pt-6">
+              <svg 
+                class={`w-12 h-12 ${
+                  step.color === 'primary' ? 'text-primary' : 
+                  step.color === 'secondary' ? 'text-secondary' : 
+                  step.color === 'accent' ? 'text-accent' :
+                  'text-accent-purple'
+                }`} 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d={step.iconPath} />
+              </svg>
+            </div>
+            
+            <!-- Content -->
+            <h3 class="text-xl font-display font-semibold text-dark mb-3">
+              {step.title}
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              {step.description}
+            </p>
+            
+            <!-- Arrow (except for last item) -->
+            {index < processSteps.length - 1 && (
+              <div class="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                <svg class="w-8 h-8 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
               </div>
-            </div>
-            
-            <div>
-              <h3 class="font-display font-semibold text-green-600 mb-2">
-                {locale === 'fr-fr' ? 'Avec Vecia' : locale === 'fr-ch' ? 'Avec Vecia' : 'With Vecia'}
-              </h3>
-              <p class="text-gray-800 font-medium">{feature.withVecia}</p>
-            </div>
+            )}
           </div>
         </div>
       ))}

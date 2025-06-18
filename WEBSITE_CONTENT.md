@@ -9,71 +9,53 @@ This document contains all the text content from your website. Edit this file an
 - Contact
 
 ## Hero Section
-**Headline:** Débloquez 30% de capacité en plus avec des agents IA formés sur votre domaine
+**Headline:** Automatisez 30 % de vos tâches en 30 jours.
 
-**Subheading:** Vecia conçoit, déploie et maintient des stacks d'automatisation qui connectent vos outils, déclenchent des actions et transmettent des résultats raffinés à votre équipe—hébergés en toute sécurité dans l'UE.
+**Subheading:** Vecia déploie des agents IA qui se branchent sur vos outils, exécutent les tâches répétitives et rendent vos équipes  + productives dès le premier mois.
 
-**Primary Button:** Réserver un appel découverte de 30 min
+**Primary Button:** Réserver mon diagnostic gratuit
 **Button Link:** https://calendly.com/vecia/decouverte
 
 ## Tagline
-L'intelligence artificielle qui libère votre équipe des tâches répétitives.
+L’IA concrète, hébergée en Europe, pensée pour les PME françaises.
 
 ## Solutions Section
 ### Title: Nos Solutions
 
 #### 1. Automatisation Data-Ops
-Shopify ⇄ Excel ⇄ BI en temps réel – supprimez les goulots d'étranglement administratifs, unifiez vos KPIs.
+Shopify ⇄ Excel ⇄ BI en temps réel – Fin du copier‑coller, chiffres à jour 24/7
 
 #### 2. Suite Marketing Agentique
-Contenu alimenté par LLM, segmentation et orchestration multicanale – augmentez vos revenus récurrents.
+Contenu alimenté par LLM, segmentation et orchestration multicanale – E‑mails et contenus générés par IA ➜ +12 % de CA récurrent
 
 #### 3. Intelligence Décisionnelle pour Trading & Finance
-Agents RAG sur données CTRM/ERP – insights instantanés, alertes de risque.
-
-#### 4. Intégrations Personnalisées & Conformité
-Hébergement conforme RGPD, modèles de langage français et arabe, options on-premise pour données sensibles.
-
-## Industries Section
-### Title: Industries
-
-#### 1. Retail & eCommerce
-Multi-boutiques Shopify, prévision des stocks, chat service client.
-
-#### 2. Opérations PME & CRM
-Assistants CRM low-code, automatisation des devis, triage des contrats.
-
-#### 3. Trading de Matières Premières & Finance
-IA sur documents de trading, réconciliation de positions, tableau de bord P&L en direct.
+Agents RAG sur données CTRM/ERP – Rapports risques & P&L livrés en 60 sec
 
 ## Process Section
 ### Title: Notre Processus en 4 Étapes
 ### Subtitle: De l'idée à l'impact en 30 jours
 
 #### 1. Atelier Découverte (FigJam live)
-Cartographier les points douloureux, définir les quick wins.
+Cartographier les besoins, définir les solutions qui auront le plus d'impact.
 
 #### 2. Sprint Build (2 semaines)
-Livraison MVP agent; checkpoint quotidien Slack/Teams.
+Livraison MVP agent (première version); Allers-retours pour une intégration simple.
 
 #### 3. Mesurer & Itérer
 Tableau de bord KPI, tests A/B, revue ROI à la semaine 6.
 
-#### 4. Support & Échelle
-Forfait pour monitoring, nouvelles fonctionnalités, onboarding personnel.
+#### 4. Support & Croissance
+Forfait pour surveiller, ajouter de nouvelles fonctionnalités et onboarding personnel.
 
 ## Pricing Section
 ### Title: Tarifs
 ### Subtitle: Des forfaits adaptés à votre croissance
 
 #### Starter
-- **Setup:** 8 500€
-- **Monthly:** 1 000€/mois
+- **Setup:** 1 000€
+- **Monthly:** 30€/mois
 - **Features:**
-  - Tour de Contrôle Data-Ops
-  - Chat bot intelligent
-  - Support par email
-  - Formation initiale
+  - Vous voulez automatiser un flux clé (ex : Shopify → Excel)
 
 #### Growth
 - **Setup:** 12 000€

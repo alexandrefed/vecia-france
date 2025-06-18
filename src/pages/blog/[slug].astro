@@ -1,0 +1,188 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/common/Container.astro';
+import Button from '@components/common/Button.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// Generate LinkedIn export
+const linkedInContent = post.data.linkedin?.content || `
+${post.data.title}
+
+${post.data.description}
+
+Découvrez l'article complet sur notre blog.
+`;
+
+const linkedInHashtags = post.data.linkedin?.hashtags?.join(' #') || 'automation AI innovation';
+
+const seo = {
+  title: post.data.seo?.title || `${post.data.title} | Vecia Blog`,
+  description: post.data.seo?.description || post.data.description,
+};
+---
+
+<BaseLayout {...seo}>
+  <article class="section pt-32">
+    <Container>
+      <div class="max-w-4xl mx-auto">
+        <!-- Article Header -->
+        <header class="mb-12 text-center">
+          <div class="flex items-center justify-center gap-4 text-sm text-gray-600 mb-4">
+            <time datetime={post.data.publishDate.toISOString()}>
+              {post.data.publishDate.toLocaleDateString('fr-FR', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+              })}
+            </time>
+            <span>•</span>
+            <span>{post.data.author}</span>
+          </div>
+          
+          <h1 class="font-display font-bold text-dark mb-6">
+            {post.data.title}
+          </h1>
+          
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+            {post.data.description}
+          </p>
+          
+          {post.data.tags.length > 0 && (
+            <div class="flex flex-wrap gap-2 justify-center">
+              {post.data.tags.map((tag) => (
+                <span class="px-4 py-2 bg-accent-light text-primary rounded-full text-sm">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </header>
+        
+        {post.data.image && (
+          <div class="mb-12 rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src={post.data.image} 
+              alt={post.data.title}
+              class="w-full h-auto"
+            />
+          </div>
+        )}
+        
+        <!-- Article Content -->
+        <div class="prose prose-lg max-w-none mb-12">
+          <Content />
+        </div>
+        
+        <!-- LinkedIn Export Section -->
+        <div class="border-t border-gray-200 pt-8">
+          <h3 class="text-2xl font-display font-semibold mb-4">
+            Partager sur LinkedIn
+          </h3>
+          
+          <div class="bg-gray-50 rounded-lg p-6 mb-4">
+            <p class="text-sm text-gray-600 mb-3">Copiez ce texte optimisé pour LinkedIn :</p>
+            <div class="bg-white rounded border border-gray-200 p-4 font-mono text-sm whitespace-pre-wrap">
+{linkedInContent}
+
+#{linkedInHashtags}
+            </div>
+          </div>
+          
+          <div class="flex gap-4">
+            <Button 
+              onclick="navigator.clipboard.writeText(document.querySelector('.font-mono').textContent); alert('Copié dans le presse-papier !');"
+              variant="secondary"
+              size="small"
+            >
+              Copier le texte
+            </Button>
+            
+            <a 
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(Astro.url.href)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary btn-sm"
+            >
+              Partager sur LinkedIn
+            </a>
+          </div>
+          
+          <p class="text-sm text-gray-600 mt-4">
+            💡 Astuce : Collez le lien de cet article dans le premier commentaire pour maximiser la portée
+          </p>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="border-t border-gray-200 pt-8 mt-12">
+          <div class="flex justify-between items-center">
+            <a href="/blog" class="text-primary hover:underline">
+              ← Retour au blog
+            </a>
+            
+            <Button href="/contact" variant="primary" size="small">
+              Discuter de votre projet
+            </Button>
+          </div>
+        </nav>
+      </div>
+    </Container>
+  </article>
+</BaseLayout>
+
+<style>
+  .prose {
+    @apply text-gray-700;
+  }
+  
+  .prose h2 {
+    @apply text-3xl font-display font-semibold text-dark mt-12 mb-6;
+  }
+  
+  .prose h3 {
+    @apply text-2xl font-display font-semibold text-dark mt-8 mb-4;
+  }
+  
+  .prose p {
+    @apply mb-6 leading-relaxed;
+  }
+  
+  .prose ul, .prose ol {
+    @apply mb-6 ml-6;
+  }
+  
+  .prose li {
+    @apply mb-2;
+  }
+  
+  .prose strong {
+    @apply font-semibold text-dark;
+  }
+  
+  .prose a {
+    @apply text-primary underline hover:no-underline;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-primary pl-6 italic my-8;
+  }
+  
+  .prose code {
+    @apply bg-gray-100 px-2 py-1 rounded text-sm;
+  }
+  
+  .prose pre {
+    @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-6;
+  }
+</style>

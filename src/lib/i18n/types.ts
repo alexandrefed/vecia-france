@@ -6,9 +6,9 @@ export interface Translation {
     solutions: string;
     industries: string;
     process: string;
-    pricing: string;
     resources: string;
     about: string;
+    blog: string;
     contact: string;
   };
   hero: {
@@ -73,34 +73,6 @@ export interface Translation {
         title: string;
         description: string;
       };
-    };
-  };
-  pricing: {
-    title: string;
-    subtitle: string;
-    currency: string;
-    period: string;
-    starter: {
-      name: string;
-      setup: string;
-      monthly: string;
-      features: string[];
-    };
-    growth: {
-      name: string;
-      setup: string;
-      monthly: string;
-      features: string[];
-    };
-    scale: {
-      name: string;
-      setup: string;
-      monthly: string;
-      features: string[];
-    };
-    enterprise: {
-      name: string;
-      description: string;
     };
   };
   cta: {

@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import Hero from '@components/sections/Hero.astro';
+import AnimatedHero from '@components/sections/AnimatedHero.astro';
+import Projects from '@components/sections/Projects.astro';
 import Features from '@components/sections/Features.astro';
+import BlogPreview from '@components/sections/BlogPreview.astro';
 import CTA from '@components/sections/CTA.astro';
 import { getLocaleData } from '@lib/i18n';
 
@@ -14,7 +16,9 @@ const seo = {
 ---
 
 <BaseLayout {...seo}>
-  <Hero locale={locale} />
+  <AnimatedHero />
+  <Projects />
   <Features locale={locale} />
   <CTA locale={locale} />
+  <BlogPreview />
 </BaseLayout>

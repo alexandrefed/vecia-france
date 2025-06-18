@@ -3,75 +3,133 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import Container from '@components/common/Container.astro';
 import Button from '@components/common/Button.astro';
 
-const title = 'Contact';
+const title = 'Contact - Vecia';
 const description = 'Contactez Vecia pour discuter de vos besoins en automatisation IA';
+
+const contactInfo = [
+  {
+    title: 'Adresse',
+    content: ['[Votre adresse]', 'Paris, France'],
+    iconPath: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z',
+    color: 'primary',
+  },
+  {
+    title: 'Email',
+    content: ['contact@vecia.ai'],
+    link: 'mailto:contact@vecia.ai',
+    iconPath: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+    color: 'secondary',
+  },
+  {
+    title: 'Réserver un appel',
+    content: ['Planifiez un appel découverte de 30 minutes pour discuter de vos besoins'],
+    iconPath: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
+    color: 'accent',
+    hasButton: true,
+  },
+  {
+    title: 'Horaires',
+    content: ['Lundi - Vendredi : 9h00 - 18h00', 'Samedi - Dimanche : Fermé'],
+    iconPath: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+    color: 'accent-purple',
+  },
+];
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="pt-32 pb-16 md:pt-40 md:pb-24">
+  <!-- Hero Section -->
+  <section class="section bg-gradient-to-b from-white to-gray-50">
     <Container>
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-          <h1 class="text-4xl md:text-5xl font-display font-bold tracking-tight mb-4">
-            Parlons de votre projet
-          </h1>
-          <p class="text-lg md:text-xl text-gray-600">
-            Découvrez comment Vecia peut transformer vos opérations avec l'IA
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-12">
-          <!-- Contact Information -->
-          <div>
-            <h2 class="text-2xl font-display font-semibold mb-6">Contactez-nous</h2>
-            
-            <div class="space-y-6">
-              <div>
-                <h3 class="font-semibold mb-2">📍 Adresse</h3>
-                <p class="text-gray-600">
-                  [Votre adresse]<br />
-                  Paris, France
-                </p>
+      <div class="text-center mb-16 scroll-fade">
+        <h1 class="font-display font-bold text-dark mb-4">
+          <span class="text-4xl">■</span> Contactez-nous
+        </h1>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          Découvrez comment Vecia peut transformer vos opérations avec l'IA
+        </p>
+      </div>
+      
+      <!-- Contact Cards -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        {contactInfo.map((info, index) => (
+          <div class="scroll-fade" style={`animation-delay: ${index * 100}ms`}>
+            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
+              <!-- Icon -->
+              <div class="mb-6">
+                <div class={`
+                  w-14 h-14 rounded-2xl flex items-center justify-center
+                  ${info.color === 'primary' ? 'bg-primary/10' : 
+                    info.color === 'secondary' ? 'bg-secondary/10' : 
+                    info.color === 'accent' ? 'bg-accent/10' :
+                    'bg-accent-purple/10'}
+                `}>
+                  <svg 
+                    class={`w-7 h-7 ${
+                      info.color === 'primary' ? 'text-primary' : 
+                      info.color === 'secondary' ? 'text-secondary' : 
+                      info.color === 'accent' ? 'text-accent' :
+                      'text-accent-purple'
+                    }`} 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d={info.iconPath} />
+                  </svg>
+                </div>
               </div>
-
-              <div>
-                <h3 class="font-semibold mb-2">📧 Email</h3>
-                <p class="text-gray-600">
-                  <a href="mailto:contact@vecia.ai" class="text-primary hover:underline">
-                    contact@vecia.ai
-                  </a>
-                </p>
+              
+              <!-- Content -->
+              <h3 class="text-xl font-display font-semibold text-dark mb-3">
+                {info.title}
+              </h3>
+              <div class="text-gray-600">
+                {info.content.map(line => (
+                  info.link ? (
+                    <a href={info.link} class="text-primary hover:underline block">
+                      {line}
+                    </a>
+                  ) : (
+                    <p>{line}</p>
+                  )
+                ))}
               </div>
-
-              <div>
-                <h3 class="font-semibold mb-2">📅 Réserver un appel</h3>
-                <p class="text-gray-600 mb-4">
-                  Planifiez un appel découverte de 30 minutes pour discuter de vos besoins
-                </p>
+              
+              {info.hasButton && (
                 <Button 
                   href="https://calendly.com/vecia/decouverte"
                   external={true}
                   variant="primary"
+                  size="sm"
+                  class="mt-4"
                 >
                   Réserver un créneau
                 </Button>
-              </div>
-
-              <div>
-                <h3 class="font-semibold mb-2">🕐 Horaires</h3>
-                <p class="text-gray-600">
-                  Lundi - Vendredi : 9h00 - 18h00<br />
-                  Samedi - Dimanche : Fermé
-                </p>
-              </div>
+              )}
             </div>
           </div>
+        ))}
+      </div>
+    </Container>
+  </section>
 
-          <!-- Contact Form -->
-          <div>
-            <h2 class="text-2xl font-display font-semibold mb-6">Envoyez-nous un message</h2>
-            
-            <form class="space-y-6" action="#" method="POST">
+  <!-- Contact Form Section -->
+  <section class="section bg-white">
+    <Container>
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-12 scroll-fade">
+          <h2 class="font-display font-bold text-dark mb-4">
+            Envoyez-nous un message
+          </h2>
+          <p class="text-lg text-gray-700">
+            Notre équipe vous répondra dans les plus brefs délais
+          </p>
+        </div>
+        
+        <div class="bg-gray-50 rounded-3xl p-8 md:p-12 scroll-fade">
+          <form class="space-y-6" action="#" method="POST">
+            <div class="grid md:grid-cols-2 gap-6">
               <div>
                 <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
                   Nom complet
@@ -81,7 +139,7 @@ const description = 'Contactez Vecia pour discuter de vos besoins en automatisat
                   id="name"
                   name="name"
                   required
-                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                  class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                 />
               </div>
 
@@ -94,47 +152,47 @@ const description = 'Contactez Vecia pour discuter de vos besoins en automatisat
                   id="email"
                   name="email"
                   required
-                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                  class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                 />
               </div>
+            </div>
 
-              <div>
-                <label for="company" class="block text-sm font-medium text-gray-700 mb-2">
-                  Entreprise
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                />
-              </div>
+            <div>
+              <label for="company" class="block text-sm font-medium text-gray-700 mb-2">
+                Entreprise
+              </label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+              />
+            </div>
 
-              <div>
-                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  required
-                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                ></textarea>
-              </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
+              ></textarea>
+            </div>
 
-              <div>
-                <Button type="submit" class="w-full">
-                  Envoyer le message
-                </Button>
-              </div>
-            </form>
+            <div class="text-center">
+              <Button type="submit" size="lg">
+                Envoyer le message
+              </Button>
+            </div>
+          </form>
 
-            <p class="text-sm text-gray-500 mt-4">
-              En soumettant ce formulaire, vous acceptez notre 
-              <a href="/privacy" class="text-primary hover:underline">politique de confidentialité</a>.
-            </p>
-          </div>
+          <p class="text-sm text-gray-500 mt-6 text-center">
+            En soumettant ce formulaire, vous acceptez notre 
+            <a href="/privacy" class="text-primary hover:underline">politique de confidentialité</a>.
+          </p>
         </div>
       </div>
     </Container>

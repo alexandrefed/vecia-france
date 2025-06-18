@@ -1,0 +1,158 @@
+---
+import Container from '../common/Container.astro';
+import Button from '../common/Button.astro';
+---
+
+<section class="relative min-h-screen flex items-center bg-white overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-white to-accent/5"></div>
+  
+  <!-- Animated background pattern -->
+  <div class="absolute inset-0 opacity-[0.02]">
+    <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%235B8BFF" fill-opacity="1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E'); background-size: 60px 60px;"></div>
+  </div>
+  
+  <Container>
+    <div class="relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <!-- Left Column - Content -->
+      <div class="space-y-8">
+        <div class="space-y-6 animate-stagger">
+          <p class="text-primary font-medium text-lg">
+            Soyez augmenté par l'Intelligence Artificielle
+          </p>
+          
+          <h1 class="font-display font-bold text-dark leading-tight text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">
+              Automatisez 30%
+            </span>
+            <span class="block">de vos tâches</span>
+            <span class="block">en 30 jours</span>
+          </h1>
+          
+          <p class="text-xl text-gray-700 max-w-xl">
+            Vecia déploie des agents IA qui se branchent sur vos outils, 
+            exécutent les tâches répétitives et rendent vos équipes 
+            + productives dès le premier mois.
+          </p>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <Button href="https://calendly.com/vecia/decouverte" variant="primary" size="large">
+            <span class="px-2">Réserver une démo</span>
+          </Button>
+          <Button href="#projects" variant="secondary" size="large">
+            Voir nos réalisations
+          </Button>
+        </div>
+      </div>
+      
+      <!-- Right Column - Visual -->
+      <div class="relative lg:h-[600px]" id="hero-visual">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="relative w-full max-w-lg mx-auto">
+            <!-- Data Flow Visualization -->
+            <div class="flex items-center justify-between gap-4">
+              <!-- Your Data -->
+              <div class="flex-1 text-center transform hover:scale-105 transition-transform duration-300 animate-fade-in">
+                <div class="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-6 mb-3 shadow-lg hover:shadow-xl transition-shadow">
+                  <svg class="w-12 h-12 mx-auto text-primary animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                  </svg>
+                </div>
+                <p class="text-sm font-medium text-gray-700">Vos données</p>
+              </div>
+              
+              <!-- Arrow -->
+              <div class="flex-shrink-0 animate-fade-in" style="animation-delay: 200ms">
+                <svg class="w-8 h-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+              
+              <!-- AI Agents -->
+              <div class="flex-1 text-center transform hover:scale-105 transition-transform duration-300 animate-fade-in" style="animation-delay: 400ms">
+                <div class="bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-2xl p-6 mb-3 shadow-lg hover:shadow-xl transition-shadow">
+                  <svg class="w-12 h-12 mx-auto text-secondary animate-pulse" style="animation-delay: 500ms" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <p class="text-sm font-medium text-gray-700">Agents IA</p>
+              </div>
+              
+              <!-- Arrow -->
+              <div class="flex-shrink-0 animate-fade-in" style="animation-delay: 600ms">
+                <svg class="w-8 h-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+              
+              <!-- Dashboard -->
+              <div class="flex-1 text-center transform hover:scale-105 transition-transform duration-300 animate-fade-in" style="animation-delay: 800ms">
+                <div class="bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl p-6 mb-3 shadow-lg hover:shadow-xl transition-shadow">
+                  <svg class="w-12 h-12 mx-auto text-accent animate-pulse" style="animation-delay: 900ms" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <p class="text-sm font-medium text-gray-700">Dashboard</p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+  
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>
+
+<style>
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.2;
+      transform: scale(1.05);
+    }
+  }
+  
+  .animate-pulse {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+</style>
+
+<script>
+  // Add scroll-triggered animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -10% 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+  
+  // Observe elements with scroll-fade class
+  document.querySelectorAll('.scroll-fade').forEach(el => {
+    observer.observe(el);
+  });
+</script>

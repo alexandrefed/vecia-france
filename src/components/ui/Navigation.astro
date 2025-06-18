@@ -12,56 +12,57 @@ const t = getLocaleData(locale);
 
 const navItems = [
   { href: '/', label: t.nav.home },
-  { href: '/pricing', label: t.nav.pricing },
   { href: '/about', label: t.nav.about },
+  { href: '/blog', label: t.nav.blog },
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+<header id="navigation" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
   <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16 md:h-20">
+    <div class="flex items-center justify-between h-20 md:h-24">
       <!-- Logo -->
-      <a href="/" class="flex items-center space-x-2">
-        <div class="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-          <span class="text-white font-display font-bold text-xl">V</span>
-        </div>
-        <span class="font-display font-semibold text-xl">Vecia</span>
+      <a href="/" class="flex items-center">
+        <img 
+          src="/images/vecia-logo-cropped.png" 
+          alt="Vecia" 
+          class="h-16 md:h-20 w-auto hover:scale-105 transition-transform duration-300"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
       </a>
       
-      <!-- Desktop Navigation -->
-      <div class="hidden lg:flex items-center space-x-8">
+      <!-- Desktop Navigation and Actions -->
+      <div class="hidden lg:flex items-center space-x-10">
         {navItems.map(item => (
           <a 
             href={item.href}
-            class="text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
+            class="relative text-dark hover:text-primary transition-colors duration-300 font-medium text-lg group"
           >
-            {item.label}
+            <span class="relative z-10">{item.label}</span>
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </a>
         ))}
-      </div>
-      
-      <!-- Actions -->
-      <div class="flex items-center space-x-4">
         
         <Button 
           href="/contact"
           size="sm"
-          class="hidden sm:inline-flex"
+          class="ml-6"
         >
           {t.nav.contact}
         </Button>
-        
-        <!-- Mobile Menu Button -->
-        <button 
-          id="mobile-menu-toggle"
-          class="lg:hidden p-2 rounded-lg hover:bg-gray-100"
-          aria-label="Toggle menu"
-        >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
       </div>
+      
+      <!-- Mobile Menu Button -->
+      <button 
+        id="mobile-menu-toggle"
+        class="lg:hidden p-2 rounded-lg hover:bg-gray-100"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
     </div>
     
     <!-- Mobile Navigation -->
@@ -95,4 +96,47 @@ const navItems = [
   toggle?.addEventListener('click', () => {
     menu?.classList.toggle('hidden');
   });
+  
+  // Scroll effects for navigation
+  const navigation = document.getElementById('navigation');
+  let lastScrollY = 0;
+  
+  const updateNavigation = () => {
+    const scrollY = window.scrollY;
+    
+    // Add background and shadow when scrolled
+    if (scrollY > 50) {
+      navigation?.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md');
+      navigation?.classList.remove('bg-transparent');
+    } else {
+      navigation?.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md');
+      navigation?.classList.add('bg-transparent');
+    }
+    
+    // Hide/show navigation on scroll
+    if (scrollY > lastScrollY && scrollY > 100) {
+      // Scrolling down
+      navigation?.classList.add('-translate-y-full');
+    } else {
+      // Scrolling up
+      navigation?.classList.remove('-translate-y-full');
+    }
+    
+    lastScrollY = scrollY;
+  };
+  
+  // Throttle scroll events
+  let ticking = false;
+  const handleScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateNavigation();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
+  
+  window.addEventListener('scroll', handleScroll);
+  updateNavigation(); // Initial state
 </script>

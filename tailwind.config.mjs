@@ -11,6 +11,7 @@ export default {
           purple: '#7B6FDE',
           light: '#E8F4FF',
         },
+        'accent-purple': '#7B6FDE',
         dark: '#1A1A2E',
         gray: {
           50: '#F9FAFB',

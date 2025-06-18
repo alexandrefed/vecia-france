@@ -7,9 +7,9 @@ export const translations: Record<Locale, Translation> = {
       solutions: 'Solutions',
       industries: 'Industries',
       process: 'Processus',
-      pricing: 'Tarifs',
       resources: 'Ressources',
       about: 'À propos',
+      blog: 'Blog',
       contact: 'Contact',
     },
     hero: {
@@ -76,49 +76,6 @@ export const translations: Record<Locale, Translation> = {
         },
       },
     },
-    pricing: {
-      title: 'Tarifs',
-      subtitle: 'Des forfaits adaptés à votre croissance',
-      currency: '€',
-      period: '/mois',
-      starter: {
-        name: 'Starter',
-        setup: '8 500',
-        monthly: '1 000',
-        features: [
-          'Tour de Contrôle Data-Ops',
-          'Chat bot intelligent',
-          'Support par email',
-          'Formation initiale',
-        ],
-      },
-      growth: {
-        name: 'Growth',
-        setup: '12 000',
-        monthly: '1 200',
-        features: [
-          'Tout Starter +',
-          'Suite Marketing',
-          'Intégrations avancées',
-          'Support prioritaire',
-        ],
-      },
-      scale: {
-        name: 'Scale',
-        setup: '16 500',
-        monthly: '1 500',
-        features: [
-          'Tous les modules',
-          'Prévisions personnalisées',
-          'Localisation complète',
-          'Support dédié',
-        ],
-      },
-      enterprise: {
-        name: 'Enterprise / On-Premise',
-        description: 'Solutions sur mesure pour vos besoins spécifiques',
-      },
-    },
     cta: {
       title: 'Prêt à automatiser votre entreprise?',
       subtitle: 'Découvrez comment Vecia peut transformer vos opérations en 30 jours.',
@@ -137,9 +94,9 @@ export const translations: Record<Locale, Translation> = {
       solutions: 'Solutions',
       industries: 'Industries',
       process: 'Processus',
-      pricing: 'Tarifs',
       resources: 'Ressources',
       about: 'À propos',
+      blog: 'Blog',
       contact: 'Contact',
     },
     hero: {
@@ -206,49 +163,6 @@ export const translations: Record<Locale, Translation> = {
         },
       },
     },
-    pricing: {
-      title: 'Tarifs',
-      subtitle: 'Transparence et flexibilité',
-      currency: 'CHF',
-      period: '/mois',
-      starter: {
-        name: 'Starter',
-        setup: '9 500',
-        monthly: '1 100',
-        features: [
-          'Tour de Contrôle Data-Ops',
-          'Chat bot intelligent',
-          'Support par email',
-          'Hébergement en Suisse',
-        ],
-      },
-      growth: {
-        name: 'Growth',
-        setup: '13 500',
-        monthly: '1 350',
-        features: [
-          'Tout Starter +',
-          'Suite Marketing',
-          'Intégrations avancées',
-          'Support prioritaire 24/7',
-        ],
-      },
-      scale: {
-        name: 'Scale',
-        setup: '18 500',
-        monthly: '1 700',
-        features: [
-          'Tous les modules',
-          'Prévisions personnalisées',
-          'Conformité réglementaire',
-          'Support dédié on-site',
-        ],
-      },
-      enterprise: {
-        name: 'Enterprise / On-Premise',
-        description: 'Solutions sur mesure avec sécurité maximale',
-      },
-    },
     cta: {
       title: 'Prêt pour une automatisation de précision?',
       subtitle: 'Découvrez la qualité suisse appliquée à l\'IA d\'entreprise.',
@@ -267,9 +181,9 @@ export const translations: Record<Locale, Translation> = {
       solutions: 'Solutions',
       industries: 'Industries',
       process: 'Process',
-      pricing: 'Pricing',
       resources: 'Resources',
       about: 'About Us',
+      blog: 'Blog',
       contact: 'Contact',
     },
     hero: {
@@ -334,49 +248,6 @@ export const translations: Record<Locale, Translation> = {
           title: 'Support & Scale',
           description: 'Retainer for monitoring, new features, staff onboarding.',
         },
-      },
-    },
-    pricing: {
-      title: 'Pricing',
-      subtitle: 'Flexible packages for rapid growth',
-      currency: 'AED',
-      period: '/month',
-      starter: {
-        name: 'Starter',
-        setup: '31,200',
-        monthly: '3,670',
-        features: [
-          'Data-Ops Control Tower',
-          'Intelligent chat bot',
-          'Email support',
-          'Initial training',
-        ],
-      },
-      growth: {
-        name: 'Growth',
-        setup: '44,000',
-        monthly: '4,400',
-        features: [
-          'Everything in Starter +',
-          'Marketing Suite',
-          'Advanced integrations',
-          'Priority support',
-        ],
-      },
-      scale: {
-        name: 'Scale',
-        setup: '60,500',
-        monthly: '5,500',
-        features: [
-          'All modules included',
-          'Custom forecasting',
-          'Full localization',
-          'Dedicated support',
-        ],
-      },
-      enterprise: {
-        name: 'Enterprise / On-Premise',
-        description: 'Custom solutions for your specific needs',
       },
     },
     cta: {

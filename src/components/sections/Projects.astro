@@ -1,0 +1,79 @@
+---
+import Container from '../common/Container.astro';
+import ProjectCard from '../common/ProjectCard.astro';
+
+const projects = [
+  {
+    title: "Automatisation E-commerce",
+    description: "Intégration complète Shopify vers tableaux de bord temps réel avec analyse prédictive des ventes",
+    imageMain: "/images/projects/e-commerce.png",
+    imageHover: "/images/projects/e-commerce.png",
+    tags: ["Shopify", "n8n", "Analytics"],
+    link: "#"
+  },
+  {
+    title: "Agent Support Client",
+    description: "Support multilingue 24/7 avec traitement automatique des tickets et escalade intelligente",
+    imageMain: "/images/projects/agent-support-marketing.png",
+    imageHover: "/images/projects/agent-support-marketing.png",
+    tags: ["IA", "Multi-langue", "CRM"],
+    link: "#"
+  },
+  {
+    title: "Pipeline de Données",
+    description: "Système d'analyse en temps réel transformant les données brutes en insights actionnables",
+    imageMain: "/images/projects/pipeline-donnees.png",
+    imageHover: "/images/projects/pipeline-donnees.png",
+    tags: ["ETL", "Real-time", "BI"],
+    link: "#"
+  },
+  {
+    title: "Suite Marketing IA",
+    description: "Génération de contenu, planification automatique et optimisation des campagnes cross-canal",
+    imageMain: "/images/projects/suite-marketing.png",
+    imageHover: "/images/projects/suite-marketing.png",
+    tags: ["Content AI", "Automation", "SEO"],
+    link: "#"
+  }
+];
+---
+
+<section id="projects" class="section bg-gray-50">
+  <Container>
+    <div class="text-center mb-16 scroll-fade visible">
+      <h2 class="font-display font-bold text-dark">
+        <span class="text-4xl">■</span> Nos Réalisations
+      </h2>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      {projects.map((project, index) => (
+        <div class="scroll-fade" style={`animation-delay: ${index * 100}ms`}>
+          <ProjectCard {...project} />
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<script>
+  // Reuse the scroll animation observer
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -10% 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.scroll-fade').forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>
