@@ -1,6 +1,6 @@
 ---
 title: "Pourquoi l'IA « ne marche pas » (et pourquoi c'est souvent vous le problème)"
-description: "Vous pestez contre ChatGPT ? Le vrai coupable n'est peut-être pas l'IA mais votre façon de lui parler – l'IA s'améliore de mois en mois, et vous?"
+description: "ChatGPT vous déçoit ? Souvent, le problème n'est pas l'IA mais vos prompts – heureusement, ça se corrige."
 publishDate: 2025-06-19
 author: "Équipe Vecia"
 image: "/images/blog/frustrations-ia.png?v=2"
