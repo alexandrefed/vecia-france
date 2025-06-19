@@ -17,7 +17,7 @@ export const translations: Record<Locale, Translation> = {
       subheading: 'Vecia conçoit, déploie et maintient des stacks d\'automatisation qui connectent vos outils, déclenchent des actions et transmettent des résultats raffinés à votre équipe—hébergés en toute sécurité dans l\'UE.',
       cta_primary: 'Réserver un appel découverte de 30 min',
       cta_secondary: 'Télécharger le guide ROI (2 pages)',
-      cta_link: 'https://calendly.com/vecia/decouverte',
+      cta_link: 'https://calendly.com/alexandre-fedotov-gennadievitch/30min',
     },
     tagline: 'L\'intelligence artificielle qui libère votre équipe des tâches répétitives.',
     solutions: {
@@ -104,7 +104,7 @@ export const translations: Record<Locale, Translation> = {
       subheading: 'Vecia conçoit, déploie et maintient des stacks d\'automatisation qui connectent vos outils, déclenchent des actions et transmettent des résultats raffinés à votre équipe—avec une sécurité et confidentialité suisses.',
       cta_primary: 'Réserver un appel découverte de 30 min',
       cta_secondary: 'Télécharger le guide ROI (2 pages)',
-      cta_link: 'https://calendly.com/vecia/decouverte',
+      cta_link: 'https://calendly.com/alexandre-fedotov-gennadievitch/30min',
     },
     tagline: 'AI agents built for precision, privacy & performance.',
     solutions: {
@@ -191,7 +191,7 @@ export const translations: Record<Locale, Translation> = {
       subheading: 'Vecia designs, deploys and supports automation stacks that connect your tools, trigger actions and hand polished results back to your team—securely hosted in the UAE/GCC.',
       cta_primary: 'Book a 30-min discovery call',
       cta_secondary: 'Download the 2-page ROI guide',
-      cta_link: 'https://calendly.com/vecia/discovery',
+      cta_link: 'https://calendly.com/alexandre-fedotov-gennadievitch/30min',
     },
     tagline: 'Scale fast with AI—data-driven growth for visionary businesses.',
     solutions: {
