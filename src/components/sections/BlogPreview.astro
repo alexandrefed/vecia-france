@@ -25,15 +25,23 @@ const recentPosts = sortedPosts.slice(0, 3);
           class="scroll-fade group bg-gray-50 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
           style={`animation-delay: ${index * 100}ms`}
         >
-          {post.data.image && (
-            <div class="h-48 bg-gradient-to-br from-primary/20 to-accent/20 overflow-hidden">
-              <div class="w-full h-full flex items-center justify-center">
+          <div class="h-48 bg-gray-100 overflow-hidden">
+            {post.data.image ? (
+              <img 
+                src={post.data.image} 
+                alt={post.data.title}
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
+              />
+            ) : (
+              <div class="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
                 <svg class="w-24 h-24 text-primary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-            </div>
-          )}
+            )}
+          </div>
           
           <div class="p-6">
             <div class="flex items-center gap-2 text-sm text-gray-600 mb-3">
