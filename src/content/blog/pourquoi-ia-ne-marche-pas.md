@@ -86,10 +86,10 @@ Magie : la réponse devient *actionnable*.
 - **Permet** d'itérer étape par étape au lieu d'un pavé indigeste
 
 **Exemple concret :** "Crée une app e-commerce" devient :
-1. ✅ Définir les user stories
-2. ✅ Concevoir l'architecture
-3. ✅ Implémenter le MVP
-4. ✅ Tester et itérer
+1. ✓ Définir les user stories
+2. ✓ Concevoir l'architecture
+3. ✓ Implémenter le MVP
+4. ✓ Tester et itérer
 
 
 
