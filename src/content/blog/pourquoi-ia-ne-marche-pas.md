@@ -27,7 +27,7 @@ seo:
 
 « ChatGPT c'est nul », ça vous aurait déjà échappé ?
 
-Moi oui, et plus d'une fois. Je me suis même dit il y a quelques mois que je ne m'en servirai pas. Bien évidemment tel le cocaïnomane que je suis en voyant les dernières mises à jour j'ai ressombré, essayé de créer quelque chose, échoué, puis j'ai relu mon prompt :
+Moi oui, et plus d'une fois. Je me suis même dit il y a quelques mois que je ne m'en servirai pas. Bien évidemment tel le cocaïnomane que je suis en voyant les dernières mises à jour, j'ai ressombré, essayé de créer quelque chose, échoué, puis j'ai relu mon prompt :
 
 > "Crée moi une appli pour concurrencer Air B&B en plus joli"
 
