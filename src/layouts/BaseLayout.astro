@@ -102,5 +102,22 @@ const fullTitle = `${title} | Vecia`;
         });
       });
     </script>
+    
+    <!-- Calendly badge widget begin -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script type="text/javascript">
+      window.addEventListener('load', function() { 
+        if (typeof Calendly !== 'undefined') {
+          Calendly.initBadgeWidget({ 
+            url: 'https://calendly.com/vecia/decouverte', 
+            text: 'Réservez un créneau de 30 minutes', 
+            color: '#5B8BFF', 
+            textColor: '#ffffff' 
+          }); 
+        }
+      });
+    </script>
+    <!-- Calendly badge widget end -->
   </body>
 </html>

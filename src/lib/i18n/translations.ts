@@ -79,7 +79,7 @@ export const translations: Record<Locale, Translation> = {
     cta: {
       title: 'Prêt à automatiser votre entreprise?',
       subtitle: 'Découvrez comment Vecia peut transformer vos opérations en 30 jours.',
-      button: 'Planifier une démo',
+      button: 'Obtenir une démo personnalisée',
     },
     footer: {
       copyright: '© 2025 Vecia. Tous droits réservés.',

@@ -1,5 +1,7 @@
 # Vecia France - Claude Code Context & Development Guide
 
+⚠️ **CRITICAL**: Always reference this CLAUDE.md file when working on this project. It contains essential information about blog styling issues and solutions.
+
 ## Project Overview
 Vecia France is the French regional website for an AI automation agency specializing in agentic workflows for modern businesses. This is a French-only static website built with Astro, Tailwind CSS, and deployed on Vercel.
 
@@ -16,6 +18,20 @@ Vecia France is the French regional website for an AI automation agency speciali
 - Accent: #3BB4FF (Light blue)
 - Gradient: linear-gradient(135deg, #9B59F6, #3BB4FF)
 - Typography: Inter for body, Space Grotesk for headings
+
+### ⚠️ CRITICAL: Blog Post Styling Issue & Solution
+
+**THE PROBLEM**: 
+- Global CSS (`/src/styles/global.css`) sets MASSIVE default heading sizes (h1: 5xl-8xl, h2: 4xl-6xl, h3: 2xl-4xl)
+- This makes blog posts look TERRIBLE with headings 5x larger than body text
+- The global styles are designed for landing pages, NOT blog content
+
+**THE SOLUTION**:
+- Blog posts MUST use custom style overrides in `/src/pages/blog/[slug].astro`
+- A `<style is:global>` block forces proper heading sizes with `!important`
+- See "Blog Posts Management" section for exact font sizes to use
+
+**IF YOU LOSE CONTEXT**: Check this file first before modifying blog styling!
 
 ## 📁 Project Structure
 ```
@@ -128,6 +144,123 @@ nav: {
 // Update Header.astro to include new item
 ```
 
+#### Blog Posts Management
+
+##### 🎨 Blog Post Styling Issues & Solutions
+
+**CRITICAL CONTEXT FOR FUTURE DEVELOPERS**:
+If you're reading this with no prior context, here's what you need to know:
+1. Blog posts will look TERRIBLE without custom styling overrides
+2. The fix is already implemented in `/src/pages/blog/[slug].astro`
+3. DO NOT remove the `<style is:global>` section or the `!important` declarations
+
+**The Problem & Solution**:
+
+1. **Problem**: Blog headings appear MASSIVE (5x bigger than body text)
+   - **Root Cause**: `/src/styles/global.css` has huge heading sizes for landing pages
+   - **Visual Impact**: Makes blog posts look unprofessional and unreadable
+
+2. **Current Blog Styling Fix** (DO NOT REMOVE):
+   ```css
+   /* In /src/pages/blog/[slug].astro */
+   
+   /* These overrides MUST stay to keep blog posts readable */
+   <style is:global>
+     article .article-content h1 { font-size: 1.5rem !important; }
+     article .article-content h2 { font-size: 1.375rem !important; }
+     article .article-content h3 { font-size: 1.25rem !important; }
+     article .article-content h4 { font-size: 1.125rem !important; }
+   </style>
+   
+   /* Main title uses inline style */
+   <h1 style="font-size: 1.75rem !important;">
+   
+   /* Body text */
+   p: 1.125rem (18px) with text-align: justify
+   ```
+
+3. **June 2025 Best Practices** (Based on Astro 5):
+   - Consider using `@tailwindcss/typography` plugin with `prose` class
+   - Astro 5 content collections are 5x faster for Markdown
+   - Use scoped styles when possible, global only when necessary
+   - Test with Playwright to verify visual appearance
+
+##### 📝 Adding New Blog Posts
+
+1. **Create new markdown file** in `/src/content/blog/`
+   ```markdown
+   ---
+   title: "Your Title"
+   description: "Description"
+   publishDate: 2025-01-20
+   author: "Équipe Vecia"
+   image: "/images/blog/your-image.jpg"
+   tags: ["tag1", "tag2"]
+   linkedin:
+     title: "LinkedIn Title"
+     content: |
+       LinkedIn post content
+     hashtags: ["hashtag1", "hashtag2"]
+   seo:
+     title: "SEO Title | Vecia"
+     description: "SEO Description"
+     keywords: ["keyword1", "keyword2"]
+   ---
+
+   Your markdown content here...
+   ```
+
+2. **Content Structure**:
+   - Use `##` for main sections (renders as 22px)
+   - Use `###` for subsections (renders as 20px)
+   - Use `####` for sub-subsections (renders as 18px)
+   - Regular paragraphs automatically justified
+
+3. **Images**:
+   - Place images in `/public/images/blog/`
+   - Reference as `/images/blog/filename.jpg`
+
+##### 🔧 Troubleshooting Blog Styling
+
+**VERIFICATION CHECKLIST** (Run these checks EVERY time):
+
+1. **Visual Check with Playwright**:
+   ```bash
+   npm run dev
+   # Open browser to http://localhost:4321/blog/[slug]
+   # Take screenshot - headings should be ONLY SLIGHTLY larger than body text
+   # If headings are HUGE, the fix isn't working
+   ```
+
+2. **Check with Browser DevTools**:
+   - Right-click on any h2 heading
+   - Inspect → Check computed font-size
+   - Should show: 22px (1.375rem) NOT 48px or larger
+   - If larger, check if `!important` is missing
+
+3. **Common Issues & Fixes**:
+   
+   **Issue**: "Headings are still massive!"
+   - Check: Is `<style is:global>` present in blog template?
+   - Check: Are `!important` declarations there?
+   - Fix: The global styles might have changed - add more specific selectors
+   
+   **Issue**: "Text not justified"
+   - Check: Is `text-align: justify` in paragraph styles?
+   - Fix: Add to `.article-content p` styles
+
+4. **Emergency Fix** (if all else fails):
+   ```astro
+   <!-- Add this to blog post template -->
+   <style>
+     /* Nuclear option - inline styles in content div */
+     .article-content :where(h1, h2, h3, h4, h5, h6) {
+       font-size: revert !important;
+       line-height: 1.4 !important;
+     }
+   </style>
+   ```
+
 ### 5. Git Workflow
 
 #### Feature Branch Strategy
@@ -234,6 +367,8 @@ git push --force origin main
 - ✅ Check responsive design
 - ✅ Verify French text accuracy
 - ✅ Monitor Vercel deployment
+- ✅ **USE PLAYWRIGHT TO VERIFY VISUAL CHANGES** - Take screenshots before/after modifications
+- ✅ **CHECK BLOG POST STYLING** - Ensure headings are proportional to body text (not 5x larger)
 
 ## 📊 Monitoring
 
@@ -302,6 +437,22 @@ npx vercel --prod    # Manual deploy
 ---
 
 **Last Updated**: June 2025
-**Astro Version**: 4.11.5
+**Astro Version**: 4.16.18
 **Node Version**: 20.x
 **Deployment**: Vercel Static
+
+---
+
+## 🚨 QUICK REFERENCE - Blog Styling Fix
+
+**If blog posts have MASSIVE headings**, the fix is in `/src/pages/blog/[slug].astro`:
+```css
+<style is:global>
+  article .article-content h2 { font-size: 1.375rem !important; }
+  /* DO NOT REMOVE THESE OVERRIDES */
+</style>
+```
+
+**Expected sizes**: H2=22px, H3=20px, H4=18px (NOT 48px+)
+
+**Always verify with screenshots before/after changes!**

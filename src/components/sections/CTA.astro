@@ -29,11 +29,11 @@ const t = getLocaleData(locale);
         <Button 
           href={t.hero.cta_link || '#contact'}
           size="lg"
-          variant="secondary"
+          variant="white"
           external={t.hero.cta_link?.startsWith('http')}
           class="shadow-2xl"
         >
-          {t.cta.button}
+          <span class="px-4">{t.cta.button}</span>
         </Button>
       </div>
     </div>

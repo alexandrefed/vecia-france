@@ -3,6 +3,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import Container from '@components/common/Container.astro';
 import Button from '@components/common/Button.astro';
 import { Image } from 'astro:assets';
+import missionImage from '../assets/images/mission-handshake.png';
 
 const seo = {
   title: 'À propos - Vecia',
@@ -46,7 +47,7 @@ const stats = [
     <Container>
       <div class="text-center mb-16 scroll-fade">
         <h1 class="font-display font-bold text-dark mb-6">
-          <span class="text-4xl">■</span> À propos de Vecia
+          <span class="text-4xl text-vecia-blue">■</span> À propos de Vecia
         </h1>
         <p class="text-xl text-gray-700 max-w-3xl mx-auto">
           Nous transformons la façon dont les entreprises travaillent en déployant 
@@ -67,20 +68,26 @@ const stats = [
             humain, pas le contraindre. Notre mission est de rendre l'IA agentique accessible 
             à toutes les entreprises, quelle que soit leur taille.
           </p>
-          <p class="text-lg text-gray-700 mb-8">
+          <p class="text-lg text-gray-700">
             Nous développons des solutions sur mesure qui s'intègrent parfaitement à vos 
             processus existants, permettant à vos équipes de se concentrer sur ce qui compte 
             vraiment : l'innovation, la créativité et la relation client.
           </p>
-          <Button href="/contact" size="lg">
-            Discutons de votre projet
-          </Button>
+          <div class="mt-16">
+            <Button href="/contact" size="lg">
+              <span class="px-4">Commencer votre transformation</span>
+            </Button>
+          </div>
         </div>
         <div class="relative scroll-fade" style="animation-delay: 200ms">
-          <div class="aspect-square bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl flex items-center justify-center">
-            <svg class="w-48 h-48 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
+          <div class="aspect-square bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl overflow-hidden">
+            <Image 
+              src={missionImage} 
+              alt="Collaboration entre humain et IA" 
+              class="w-full h-full object-cover"
+              width={600}
+              height={600}
+            />
           </div>
         </div>
       </div>
@@ -234,13 +241,15 @@ const stats = [
         <h2 class="font-display font-bold mb-6">
           Prêt à transformer votre entreprise ?
         </h2>
-        <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+        <p class="text-xl opacity-90 max-w-2xl mx-auto">
           Découvrez comment l'IA agentique peut révolutionner vos processus 
           et libérer le potentiel de vos équipes.
         </p>
-        <Button href="/contact" variant="secondary" size="lg">
-          Planifier une démo
-        </Button>
+        <div class="mt-16">
+          <Button href="/contact" variant="secondary" size="lg">
+            <span class="px-4">Parlons de votre projet</span>
+          </Button>
+        </div>
       </div>
     </Container>
   </section>
